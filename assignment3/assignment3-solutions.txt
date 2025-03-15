@@ -1,0 +1,173 @@
+#q1
+> v=c(2.3, 4.4, 5, 5, 6, 6.5, 6.5, 6.5, 6.5, 8.6, 9.2, 4.4, 4.4, 5.4, 5, 2, 4.4)
+> mean(v)
+[1] 5.417647
+> max(v)
+[1] 9.2
+> min(v)
+[1] 2
+> range(v)
+[1] 2.0 9.2
+> median(v)
+[1] 5
+freq_table=table(v)
+mode= as.numeric(names(freq_table)[which(freq_table == max(freq_table))])
+[1] 4.4 6.5
+
+
+#q2
+ v=seq(1,100,0.01)
+ length(v)
+[1] 9901
+> mean(v)
+[1] 50.5
+> median(v)
+[1] 50.5
+> q1=quantile(v,0.25)
+> q1
+  25% 
+25.75 
+> q2=quantile(v,0.5)
+> q2
+ 50% 
+50.5 
+> q3=quantile(v,0.75)
+> q3
+  75% 
+75.25 
+> q4=quantile(v,1)
+> q4
+100% 
+ 100 
+> p80=quantile(v,0.8)
+> p80
+ 80% 
+80.2 
+>  mo=which(v==max(v))
+> mo
+[1] 9901
+> freq_table=table(v)
+> mode= as.numeric(names(freq_table)[which(freq_table == max(freq_table))])
+> mode
+
+
+#q3
+> v1=c(2.3, 5.4, 3.3, 4.2, 4.2, 7.9, 4.2, 9.8)
+> v2=c(4.3, 6.4, 8.3, 6.2,
++ 6.2, 6.9, 6.2, 8.8)
+> var1=var(v1)
+> var2=var(v2)
+> sd1=sqrt(var1)
+> sd2=sqrt(var2)
+> var1
+[1] 6.214107
+> var2
+[1] 1.942679
+> sd1
+[1] 2.492811
+> sd2
+[1] 1.3938
+
+#q4
+> v=c( 19, 15, 27, 28, 14, 9, 30, 29, 20, 25)
+> mean(v)
+[1] 21.6
+
+#q5
+> v=c(10, 7, 12, 8, 11, 10, 8, 6, 9, 10)
+> mo=which(v==max(v))
+> mo
+[1] 3
+> m=v[mo]
+> m
+[1] 12
+
+#q6
+> v=c(23, 22, 30, 25, 21, 32, 26, 37, 40, 30, 29)
+> median(v)
+[1] 29
+
+#q7
+ data(CO2)
+> uptakes =CO2$uptake
+> m1=mean(uptakes)
+> m2=median(uptakes)
+> m3=as.numeric(names(table(uptakes))[which.max(table(uptakes))])
+> d10 <- quantile(uptakes, probs = 0.1)
+> p30 <- quantile(uptakes, probs = 0.3)
+> q1 <- quantile(uptakes, probs = 0.25)
+> q3 <- quantile(uptakes, probs = 0.75)
+> qd <- (q3 - q1) / 2
+> p30
+ 30% 
+18.9 
+> qd
+   75% 
+9.6125 
+>  d10 
+  10% 
+12.36 
+> m2
+[1] 28.3
+> m1
+[1] 27.2131
+> m3 
+[1] 17.9
+> 
+
+#q8
+x=0:8
+ f=c(25,46,91,162,110,95,82,26,13)
+> m1=sum(f*x)/sum(f)
+> m1
+[1] 3.703077
+> m2= median(rep(x,f))
+> m2
+[1] 4
+
+#q9
+> v=c(350,320,410,360,520,290,300,305,260,310)
+> range(v)
+[1] 260 520
+> var(v)
+[1] 5640.278
+> sd=sqrt(var(v))
+> sd
+[1] 75.10178
+> l=max(v)
+> s=min(v)
+> coeff=(l-s)/(l+s)
+> coeff
+[1] 0.3333333
+> q3=quantile(v,0.75)
+> q1=quantile(v,0.25)
+> qd=(q3-q1)/2
+> qd
+   75% 
+28.125 
+
+
+#q10
+> x=c(1,2,3,4,5)
+> f=c(7,11,9,8,3)
+> summ=sum(f)
+> m1=sum(x*f)/summ
+> m1 #mean
+[1] 2.710526
+> m2=x[which.max(f)] #mode
+> m2
+[1] 2
+> cf =cumsum(f)
+> total_freq = sum(f)
+> med=(total_freq + 1) / 2
+> median_class =which.max(cf >= med)[1]
+> lb=x[median_class]
+> cf1=ifelse(median_class == 1, 0, cf[median_class - 1])
+> freq_median_class =f[median_class]
+> ci= 1
+> median =lb+ ((med - cf1/ freq_median_class) * ci
+> median
+[1] 3.166667
+
+
+

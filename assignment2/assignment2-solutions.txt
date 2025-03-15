@@ -1,0 +1,68 @@
+#q1
+library(ggplot2movies)
+movies
+v = movies[,"votes"]
+hist(v, main="Some Votes given for movies", xlim=c(0,50000))
+
+#q2
+rating_data = movies[,"rating"]
+x = pie(rating_data[1:20])
+saveRDS(x, file="pie.png")
+
+#q3
+movies_data = read.csv("moviesData.csv")
+critc_score = movies_data[,"critics_score"]
+bar_chart = bar(head(critc_score, 10))
+print(bar_chart)
+ 
+#q4
+sctrPlt = plot(movies$rating, movies$votes)
+saveRDS(sctrPltfile="scatter.png")
+
+#q5
+data(mtcars)
+barplot(table(mtcars$cyl), main = "Barplot of Number of Cars by Cylinder",xlab = "Cylinders",ylab = "Number of Cars", col = "skyblue",border = "black")
+
+#q6
+com=c("food","rent","clothes","edu","savings","miscl")
+exp=c(300,200,125,110,90,75)
+ pie(exp,main="living",label=com)
+
+#q7
+y=2002:2004
+raw=c(21600,26000,27000)
+labour=c(5400,7000,8100)
+dir=c(3600,3000,3500)
+office=c(1800,2000,2700)
+factory=c(3600,2000,3600)
+d=data.frame(raw,labour,dir,office,factory)
+dl=as.matrix(d)
+barplot(t(dl),main="Cost per scooter",xlab="years",ylab="cost",names.arg=y)
+
+#q8
+lb = c(18,20,25,30,40,50,60)
+ub=c(20,25,30,40,50,60,70)
+x=(ub+lb)/2
+f=c(7,12,28,14,8,3,2)
+y=rep(x,f)
+hist(y,main="histogram",breaks=c(18,ub),xlab="age",ylab="frequency")
+
+#q9
+data("LifeCycleSavings")
+savings_matrix <- as.matrix(LifeCycleSavings)
+heatmap(savings_matrix)
+
+#q10
+m1=c( 0.094, 0.668, 0.4153, 0.4613)
+m2=c(0.1138, -0.3847, 0.2671, 0.1529)
+m3=c( 0.1893, 0.3303, 0.5821, 0.2632)
+m4=c( -0.0102, -0.4259, -0.5967, 0.18)
+m5=c(0.1587, 0.2948, 0.153, -0.2208)
+m6=c(-0.4558, 0.2244, 0.6619, 0.0457)
+m7=c(-0.6241, -0.3119, 0.3642, 0.2003)
+m8=c(-0.227, 0.499, 0.3067, 0.3289)
+m9=c(0.7365, -0.0872, -0.069, -0.4252)
+m10=c( 0.9761, 0.4355, 0.8663, 0.8107)
+df=data.frame(m1,m2,m3,m4,m5,m6,m7,m8,m9,m10)
+d=as.matrix(df)
+heatmap(d,Rowv = NULL,Colv = NULL, main = "Heatmap Without Dendrograms")
